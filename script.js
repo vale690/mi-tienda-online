@@ -61,10 +61,10 @@ document.addEventListener('DOMContentloaded', () => {
 
         carrito.forEach(producto => {
             const itmDiv = document.createElement('div');
-            itmDiv.innerHTML = '
-                 <span>${producto.nombre}</span>
-                 <span>${producto.precio.tolocaString()}</span>
-            ';
+            itmDiv.innerHTML = `
+                   <span>${producto.nombre}</span>
+                   <span>$${producto.precio.tolocaString()</span>
+              `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
         })
