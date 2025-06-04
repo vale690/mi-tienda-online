@@ -43,27 +43,27 @@ document.addEventListener('DOMContentloaded', () => {
 
         carrito.forEach(producto => {
             const li = document.createElement('li');
-            li.innerHTML = 0;
+            li.innerHTML = `
                 <span>${producto.nombre}</span>
-                <span>$${producto.precio.tolocaString()</span>
-        ;
+                <span>$${producto.precio.tolocaString()}</span>
+      `;
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
         })
 
-       totalCarritoElemet.textContent = 'total: $${totalCarrito.tolocaString()}';
+       totalCarritoElemet.textContent = `Total: $${totalCarrito.tolocaString()}`;
     }
 
     // Función para mostrar la factura
     function mostrarFactura() {
-        itesFacturaDiv.innerHTML = ';'
+        itesFacturaDiv.innerHTML = '';
         let totalFactura = 0;
 
         carrito.forEach(producto => {
             const itmDiv = document.createElement('div');
             itmDiv.innerHTML = `
                    <span>${producto.nombre}</span>
-                   <span>$${producto.precio.tolocaString()</span>
+                   <span>$${producto.precio.tolocaString()}</span>
               `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
