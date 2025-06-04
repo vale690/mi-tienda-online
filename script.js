@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productosContainer = document.getElementById('producto');
     const listaCarrito = document.getElementById('lista-carrito');
-    const totalCarritoElemet = document.getElementById('lista-carrito');
-    const btnComprar = document.getElementById('total-carrito');
+    const totalCarritoElemet = document.getElementById('total-carrito');
+    const btnComprar = document.getElementById('btn-comprar');
     const facturaSection = document.getElementById('factura');
     const itesFacturaDiv = document.getElementById('items-factura');
     const totalFacturaElemet = document.getElementById('total-factura');
