@@ -105,6 +105,6 @@ document.addEventListener('DOMContentloaded', () => {
    });
     btnVolverComprar.addEventListener('click', () => {
           limpiarCarrito();
-    })
-})
+    });
+});
          
