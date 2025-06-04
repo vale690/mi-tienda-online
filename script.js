@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+
+document.addEventListener('DOMContentloaded', () => {
 
     const productos = [
         { id: 1, nombre: 'Computador 1', precio: 2300000 },
@@ -14,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const productosContainer = document.getElementById('producto');
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalCarritoElemet = document.getElementById('total-carrito');
+    const listaCarrito = document.getElementById('total-carrito');
+    const totalCarritoElemet = document.getElementById('carrito-total');
     const btnComprar = document.getElementById('btn-comprar');
     const facturaSection = document.getElementById('factura');
     const itesFacturaDiv = document.getElementById('items-factura');
@@ -42,31 +44,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         carrito.forEach(producto => {
             const li = document.createElement('li');
-            li.innerHTML = 
-              
-                
-                
-            
+            li.innerHTML = `
+                <span>${producto.nombre}</span>
+                <span>$${producto.precio.tolocaString()}</span>
+      `;
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
         })
 
-       totalCarritoElemet.textContent = 'total: $${totalCarrito.tolocaString()}';
+       totalCarritoElemet.textContent = `Total: $${totalCarrito.tolocaString()}`;
     }
 
     // Función para mostrar la factura
     function mostrarFactura() {
-        itesFacturaDiv.innerHTML = ';'
+        itesFacturaDiv.innerHTML = '';
         let totalFactura = 0;
 
         carrito.forEach(producto => {
             const itmDiv = document.createElement('div');
-            itmDiv.innerHTML = 
+            itmDiv.innerHTML = `
+                   <span>${producto.nombre}</span>
+                   <span>$${producto.precio.tolocaString()}</span>
+              `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
         })
 
-        totalFacturaElemet.textContent = 'Total Factura: $${totalFactura.tolocaString()}';
+        totalFacturaElemet.textContent = `Total Factura: $${totalFactura.tolocaString()}`;
         facturaSection.style.display = 'block';
     }
 
@@ -80,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Evento para agregar un producto al carrito
     productosContainer.addEventListener('click', (event) => {
-        if (event.target.classLis.contains('btn-agregar')) {
+        if (event.target.classlis.contains('btn-agregar')) {
              const id = parseInt(event.target.getAttribute ('data-id'));
              agregarAlCarrito(id);
         }
@@ -91,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(carrito.length > 0) {
             mostrarFactura();
         } else {
-            alert("El carrito esta vacio. por favor, agregue productos anntes de comprar.");
+            alert("El carrito esta vacio. por favor, agregue productos antes de comprar.");
         }
    });
 
@@ -101,5 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
    });
     btnVolverComprar.addEventListener('click', () => {
           limpiarCarrito();
-    });
-});
+    })
+})
+         
