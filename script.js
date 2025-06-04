@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para actualizar la visualizacion del carrito
     function actuatizarCarrito() {
         listaCarrito.innerHTML = '';
-        totalCarrito =0;
+        totalCarrito = 0;
 
         carrito.forEach(producto => {
             const li = document.createElement('li');
