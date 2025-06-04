@@ -1,5 +1,4 @@
-
-document.addEventListener('DOMContentloaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const productos = [
         { id: 1, nombre: 'Computador 1', precio: 2300000 },
@@ -43,28 +42,26 @@ document.addEventListener('DOMContentloaded', () => {
 
         carrito.forEach(producto => {
             const li = document.createElement('li');
-            li.innerHTML = `
-                <span>${producto.nombre}</span>
-                <span>$${producto.precio.tolocaString()}</span>
-      `;
+            li.innerHTML = 
+              
+                
+                
+            
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
         })
 
-       totalCarritoElemet.textContent = `Total: $${totalCarrito.tolocaString()}`;
+       totalCarritoElemet.textContent = 'total: $${totalCarrito.tolocaString()}';
     }
 
     // Función para mostrar la factura
     function mostrarFactura() {
-        itesFacturaDiv.innerHTML = '';
+        itesFacturaDiv.innerHTML = ';'
         let totalFactura = 0;
 
         carrito.forEach(producto => {
             const itmDiv = document.createElement('div');
-            itmDiv.innerHTML = `
-                   <span>${producto.nombre}</span>
-                   <span>$${producto.precio.tolocaString()}</span>
-              `;
+            itmDiv.innerHTML = 
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
         })
@@ -83,7 +80,7 @@ document.addEventListener('DOMContentloaded', () => {
     
     // Evento para agregar un producto al carrito
     productosContainer.addEventListener('click', (event) => {
-        if (event.target.classlis.contains('btn-agregar')) {
+        if (event.target.classLis.contains('btn-agregar')) {
              const id = parseInt(event.target.getAttribute ('data-id'));
              agregarAlCarrito(id);
         }
@@ -92,9 +89,9 @@ document.addEventListener('DOMContentloaded', () => {
     // Evento para comprar y generar la factura
     btnComprar.addEventListener('click', () => {
         if(carrito.length > 0) {
-            mostrarFactura(;)
+            mostrarFactura();
         } else {
-            alert('El carrito esta vacio. por favor, agregue productos anntes de comprar.');
+            alert("El carrito esta vacio. por favor, agregue productos anntes de comprar.");
         }
    });
 
@@ -104,5 +101,5 @@ document.addEventListener('DOMContentloaded', () => {
    });
     btnVolverComprar.addEventListener('click', () => {
           limpiarCarrito();
-    })
-})
+    });
+});
