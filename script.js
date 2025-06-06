@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const producto = productos.find(p => p.id === id);
         if (producto) {
             carrito.push(producto);
-            actuatizarCarrito();
+            actualizarCarrito();
         }
     }
 
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.innerHTML = `
                 <span>${producto.nombre}</span>
-                <span>$${producto.precio.tolocaleString()}</span>
+                <span>$${producto.precio.toLocaleString()}</span>
       `;
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
         });
 
-       totalCarritoElemet.textContent = `Total: $${totalCarrito.toLocaleString()}`;
+       totalCarritoElement.textContent = `Total: $${totalCarrito.toLocaleString()}`;
     }
 
     // Función para mostrar la factura
@@ -62,13 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const itmDiv = document.createElement('div');
             itmDiv.innerHTML = `
                    <span>${producto.nombre}</span>
-                   <span>$${producto.precio.tolocaleString()}</span>
+                   <span>$${producto.precio.toLocaleString()}</span>
               `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
         });
 
-        totalFacturaElemet.textContent = `Total Factura: $${totalFactura.tolocaleString()}`;
+        totalFacturaElement.textContent = `Total Factura: $${totalFactura.toLocaleString()}`;
         facturaSection.style.display = 'block';
     }
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function limpiarCarrito() {
         carrito = [];
         totalCarrito =0;
-        actuatizarCarrito();
+        actualizarCarrito();
         facturaSection.style.display = 'none';
     
     }
