@@ -1,6 +1,4 @@
-
-
-document.addEventListener('DOMContentloaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const productos = [
         { id: 1, nombre: 'Computador 1', precio: 2300000 },
@@ -16,8 +14,8 @@ document.addEventListener('DOMContentloaded', () => {
     ];
 
     const productosContainer = document.getElementById('producto');
-    const listaCarrito = document.getElementById('total-carrito');
-    const totalCarritoElemet = document.getElementById('carrito-total');
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalCarritoElemet = document.getElementById('total-carrito');
     const btnComprar = document.getElementById('btn-comprar');
     const facturaSection = document.getElementById('factura');
     const itesFacturaDiv = document.getElementById('items-factura');
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentloaded', () => {
       `;
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
-        })
+        });
 
        totalCarritoElemet.textContent = `Total: $${totalCarrito.tolocaString()}`;
     }
@@ -68,7 +66,7 @@ document.addEventListener('DOMContentloaded', () => {
               `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
-        })
+        });
 
         totalFacturaElemet.textContent = `Total Factura: $${totalFactura.tolocaString()}`;
         facturaSection.style.display = 'block';
@@ -77,6 +75,7 @@ document.addEventListener('DOMContentloaded', () => {
     // Función para limpiar el carrito
     function limpiarCarrito() {
         carrito = [];
+        totalCarrito =0;
         actuatizarCarrito();
         facturaSection.style.display = 'none';
     
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentloaded', () => {
     
     // Evento para agregar un producto al carrito
     productosContainer.addEventListener('click', (event) => {
-        if (event.target.classlis.contains('btn-agregar')) {
+        if (event.target.classLis.contains('btn-agregar')) {
              const id = parseInt(event.target.getAttribute ('data-id'));
              agregarAlCarrito(id);
         }
