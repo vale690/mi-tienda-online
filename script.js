@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productosContainer = document.getElementById('producto');
     const listaCarrito = document.getElementById('lista-carrito');
-    const totalCarritoElemet = document.getElementById('total-carrito');
+    const totalCarritoElement = document.getElementById('total-carrito');
     const btnComprar = document.getElementById('btn-comprar');
     const facturaSection = document.getElementById('factura');
     const itemsFacturaDiv = document.getElementById('items-factura');
-    const totalFacturaElemet = document.getElementById('total-factura');
+    const totalFacturaElement = document.getElementById('total-factura');
     const btnNuevaCompra = document.getElementById('btn-nueva-compra');
     const btnVolverComprar = document.getElementById('btn-volver-comprar');
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Función para actualizar la visualizacion del carrito
-    function actuatizarCarrito() {
+    function actualizarCarrito() {
         listaCarrito.innerHTML = '';
         totalCarrito = 0;
 
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const li = document.createElement('li');
             li.innerHTML = `
                 <span>${producto.nombre}</span>
-                <span>$${producto.precio.tolocaString()}</span>
+                <span>$${producto.precio.tolocaleString()}</span>
       `;
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
         });
 
-       totalCarritoElemet.textContent = `Total: $${totalCarrito.toLocaString()}`;
+       totalCarritoElemet.textContent = `Total: $${totalCarrito.toLocaleString()}`;
     }
 
     // Función para mostrar la factura
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             totalFactura += producto.precio;
         });
 
-        totalFacturaElemet.textContent = `Total Factura: $${totalFactura.tolocaString()}`;
+        totalFacturaElemet.textContent = `Total Factura: $${totalFactura.tolocaleString()}`;
         facturaSection.style.display = 'block';
     }
 
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Evento para agregar un producto al carrito
     productosContainer.addEventListener('click', (event) => {
-        if (event.target.classLis.contains('btn-agregar')) {
+        if (event.target.classList.contains('btn-agregar')) {
              const id = parseInt(event.target.getAttribute ('data-id'));
              agregarAlCarrito(id);
         }
