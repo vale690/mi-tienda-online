@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalCarritoElemet = document.getElementById('total-carrito');
     const btnComprar = document.getElementById('btn-comprar');
     const facturaSection = document.getElementById('factura');
-    const itesFacturaDiv = document.getElementById('items-factura');
+    const itemsFacturaDiv = document.getElementById('items-factura');
     const totalFacturaElemet = document.getElementById('total-factura');
     const btnNuevaCompra = document.getElementById('btn-nueva-compra');
     const btnVolverComprar = document.getElementById('btn-volver-comprar');
@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
             totalCarrito += producto.precio;
         });
 
-       totalCarritoElemet.textContent = `Total: $${totalCarrito.tolocaString()}`;
+       totalCarritoElemet.textContent = `Total: $${totalCarrito.toLocaString()}`;
     }
 
     // Función para mostrar la factura
     function mostrarFactura() {
-        itesFacturaDiv.innerHTML = '';
+        itemsFacturaDiv.innerHTML = '';
         let totalFactura = 0;
 
         carrito.forEach(producto => {
