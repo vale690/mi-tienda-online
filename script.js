@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const itmDiv = document.createElement('div');
             itmDiv.innerHTML = `
                    <span>${producto.nombre}</span>
-                   <span>$${producto.precio.tolocaString()}</span>
+                   <span>$${producto.precio.tolocaleString()}</span>
               `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
