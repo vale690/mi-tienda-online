@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const facturaSection = document.getElementById('factura');
     const itemsFacturaDiv = document.getElementById('items-factura');
     const totalFacturaElement = document.getElementById('total-factura');
-    const btnNuevaComprar = document.getElementById('btn-nueva-comprar');
+    const btnNuevaCompra = document.getElementById('btn-nueva-compra');
     const btnVolverComprar = document.getElementById('btn-volver-comprar');
 
     let carrito = [];
