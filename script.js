@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 7, nombre: 'Teclado 1', precio: 25000 },
         { id: 8, nombre: 'Teclado 2', precio: 50000 },
         { id: 9, nombre: 'USB 1', precio: 30000 },
-        { id: 10, nombre: 'USB 2', precio: 30000 },
+        { id: 10, nombre: 'USB 2', precio: 30000 }
     ];
 
     const productosContainer = document.getElementById('producto');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Función para actualizar la visualizacion del carrito
+    // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
         listaCarrito.innerHTML = '';
         totalCarrito = 0;
@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
             li.innerHTML = `
                 <span>${producto.nombre}</span>
                 <span>$${producto.precio.toLocaleString()}</span>
-      `;
+            `;
             listaCarrito.appendChild(li);
             totalCarrito += producto.precio;
         });
 
-       totalCarritoElement.textContent = `Total: $${totalCarrito.toLocaleString()}`;
+        totalCarritoElement.textContent = `Total: $${totalCarrito.toLocaleString()}`;
     }
 
     // Función para mostrar la factura
@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.forEach(producto => {
             const itmDiv = document.createElement('div');
             itmDiv.innerHTML = `
-                   <span>${producto.nombre}</span>
-                   <span>$${producto.precio.toLocaleString()}</span>
-              `;
+                <span>${producto.nombre}</span>
+                <span>$${producto.precio.toLocaleString()}</span>
+            `;
             itemsFacturaDiv.appendChild(itmDiv);
             totalFactura += producto.precio;
         });
@@ -75,35 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para limpiar el carrito
     function limpiarCarrito() {
         carrito = [];
-        totalCarrito =0;
+        totalCarrito = 0;
         actualizarCarrito();
         facturaSection.style.display = 'none';
-    
     }
-    
+
     // Evento para agregar un producto al carrito
     productosContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('btn-agregar')) {
-             const id = parseInt(event.target.getAttribute ('data-id'));
-             agregarAlCarrito(id);
+            const id = parseInt(event.target.getAttribute('data-id'));
+            agregarAlCarrito(id);
         }
     });
 
     // Evento para comprar y generar la factura
     btnComprar.addEventListener('click', () => {
-        if(carrito.length > 0) {
+        if (carrito.length > 0) {
             mostrarFactura();
         } else {
-            alert("El carrito esta vacio. por favor, agregue productos antes de comprar.");
+            alert("El carrito está vacío. Por favor, agregue productos antes de comprar.");
         }
-   });
-
-   // Evento para volver a comprar y limpiar el carrito
-   btnNuevaCompra.addEventListener('click', () =>{
-         limpiarCarrito();
-   });
-    btnVolverComprar.addEventListener('click', () => {
-          limpiarCarrito();
     });
+
+    // Eventos para limpiar el carrito
+    btnNuevaCompra.addEventListener('click', limpiarCarrito);
+    btnVolverComprar.addEventListener('click', limpiarCarrito);
+
 });
-         
+
