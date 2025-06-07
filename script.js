@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let carrito = [];
     let totalCarrito = 0;
 
+    // Función para agregar un producto al carrito
     function agregarAlCarrito(id) {
         const producto = productos.find(p => p.id === id);
         if (producto) {
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Función para actualizar la visualización del carrito
     function actualizarCarrito() {
         listaCarrito.innerHTML = '';
         totalCarrito = 0;
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         totalCarritoElement.textContent = `Total: $${totalCarrito.toLocaleString()}`;
     }
 
+    // Función para mostrar la factura
     function mostrarFactura() {
         itemsFacturaDiv.innerHTML = '';
         let totalFactura = 0;
@@ -69,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         facturaSection.style.display = 'block';
     }
 
+    // Función para limpiar el carrito
     function limpiarCarrito() {
         carrito = [];
         totalCarrito = 0;
@@ -76,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         facturaSection.style.display = 'none';
     }
 
+    // Evento para agregar un producto al carrito
     productosContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('btn-agregar')) {
             const id = parseInt(event.target.getAttribute('data-id'));
@@ -83,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Evento para comprar y generar la factura
     btnComprar.addEventListener('click', () => {
         if (carrito.length > 0) {
             mostrarFactura();
@@ -91,17 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Verifica si existen los botones antes de agregar el evento
-    if (btnNuevaCompra) {
-        btnNuevaCompra.addEventListener('click', limpiarCarrito);
-    }
-
-    if (btnVolverComprar) {
-        btnVolverComprar.addEventListener('click', () => {
-            console.log('Botón Volver a comprar presionado');
-            limpiarCarrito();
-        });
-    }
+    // Eventos para limpiar el carrito
+    btnNuevaCompra.addEventListener('click', limpiarCarrito);
+    btnVolverComprar.addEventListener('click', limpiarCarrito);
 
 });
-
